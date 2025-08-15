@@ -2,9 +2,6 @@
 """Acc-U-NET2.ipynb
 
 """
-
-__autor__ = "Andres Llanos"
-
 """
 @author: Andres Llanos
 """
