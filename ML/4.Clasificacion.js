@@ -227,7 +227,6 @@ var finalImage = img.addBands(ndvi.rename('NDVI'))
 
 // Define la lista de bandas que se usarán en el análisis o clasificación. Incluye bandas espectrales (B2–B12), 
 //índices de vegetación (NDVI, EVI, etc.) y transformaciones morfológicas (CLOSING, DILATION, etc)
-
 var bands = ['B2', 'B3', 'B4', 'B5', 'B8', 'B11', 'B12', 'NDVI', 'SR83', 'DVI', 'SAVI', 
              'EVI', 'EVI2', 'MSAVI', 'GOSAVI', 'NDVI2', 'CLOSING', 'DILATION'/ 'GRADX', 
              'GRADY', 'EROSION', 'DILATION', 'OPENING', 'CLOSING', 'MAGNITUDE']
