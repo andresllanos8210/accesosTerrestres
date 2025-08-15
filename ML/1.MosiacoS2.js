@@ -1,3 +1,7 @@
+/**
+*@autor   Andres LLanos
+*
+*/    
 // llama la grilla con los tiles de Sentinel-2 y la almacena en la variable carta 
 var carta = ee.FeatureCollection('projects/ee-monitoreo2024/assets/GridS2');
 
