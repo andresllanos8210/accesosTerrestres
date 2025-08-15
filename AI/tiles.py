@@ -98,54 +98,44 @@ y_train= np.load('/content/drive/MyDrive/GEE_Exports/viasTrain.npy')
 
 import matplotlib.pyplot as plt
 
-# Let's plot a few sample input RGB images and output images with masks
-num_samples = 2  # Number of samples to display
-fig, axes = plt.subplots(num_samples, 2, figsize=(10, num_samples * 5)) # Create a grid of subplots
+# Despliega los tiles de mosaico en RGB con su respectiva mascara de accesos terrestres
+num_samples = 2  # Numero de muestras a mostrar
+fig, axes = plt.subplots(num_samples, 2, figsize=(10, num_samples * 5)) 
 
 for i in range(num_samples):
-    img_index = np.random.randint(0, X_train.shape[0]) # Get a random index
+    img_index = np.random.randint(0, X_train.shape[0]) 
 
-    # Display the image
-    axes[i, 0].imshow(X_train[img_index]) # Corrected indexing
+    # Muestra la imagen
+    axes[i, 0].imshow(X_train[img_index]) 
 
     axes[i, 0].set_title(f"Image {img_index}")
-    axes[i, 0].axis('on') # Hide axes ticks
+    axes[i, 0].axis('on') 
 
-    # Display the mask
-    # Use a colormap that makes the mask clearly visible, e.g., 'gray' or 'binary'
-    axes[i, 1].imshow(y_train[img_index, :, :, 0], cmap='gray') # Corrected indexing for mask
+# Muestra la máscara
+# Usa un mapa de colores que haga que la máscara sea claramente visible, por ejemplo, "gris" o "binario".
+    axes[i, 1].imshow(y_train[img_index, :, :, 0], cmap='gray') 
     axes[i, 1].set_title(f'Mask {img_index}')
-    axes[i, 1].axis('on') # Hide axes ticks
+    axes[i, 1].axis('on')
 
-plt.tight_layout() # Adjust layout to prevent titles overlapping
+plt.tight_layout() # Ajustar el diseño para evitar que los títulos se superpongan
 plt.show()
 
-# Select a random sample index
 sample_index = np.random.randint(0, y_train.shape[0])
 
-# Get the mask for the selected sample
-# Assuming y_train has a shape like (num_samples, height, width, num_channels)
-# and the mask is in the first channel
 mask_to_display = y_train[sample_index, :, :, 0]
 
-# Display the mask
+# Muestra la máscara de accesos terrestres con el mismo indice del tile de mosaico
 plt.figure(figsize=(6, 6))
-plt.imshow(mask_to_display, cmap='gray') # Use 'gray' colormap for masks
+plt.imshow(mask_to_display, cmap='gray') # Usa 'gray' para las mascaras
 plt.title(f'Mask Sample {sample_index}')
-# plt.axis('on') # Hide axes ticks
 plt.show()
 
-# import matplotlib.pyplot as plt
-
-# Let's plot a sample input RGB image and output image with buildings
+# Grafica una imagen RGB de entrada de muestra y una imagen de salida 
 fig, (ax1, ax2) = plt.subplots(1,2)
-img = np.random.randint(0, X_train.shape[0]) # Use the actual number of samples
-print(img)
-ax1.imshow(X_train[img]) # Select first 3 bands and transpose for imshow
+img = np.random.randint(0, X_train.shape[0]) # Utilice el número de muestras
+ax1.imshow(X_train[img]) 
 ax2.imshow(y_train[img, :, :, 0], cmap='gray')
 ax1.set_title(f"Image  {img}")
 ax2.set_title(f'Mask {img}')
 plt.show()
 
-# import tensorflow as tf
-# print(tf.config.list_physical_devices('GPU'))
