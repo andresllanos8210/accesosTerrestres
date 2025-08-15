@@ -114,7 +114,7 @@ for i in range(num_samples):
     axes[i, 1].set_title(f'Mask {img_index}')
     axes[i, 1].axis('on')
 
-plt.tight_layout() # Ajustar el diseño para evitar que los títulos se superpongan
+plt.tight_layout() # Ajusta el diseño para evitar que los títulos se superpongan
 plt.show()
 
 sample_index = np.random.randint(0, y_train.shape[0])
@@ -127,9 +127,9 @@ plt.imshow(mask_to_display, cmap='gray') # Usa 'gray' para las mascaras
 plt.title(f'Mask Sample {sample_index}')
 plt.show()
 
-# Grafica una imagen RGB de entrada de muestra y una imagen de salida 
+# Grafica una imagen RGB de entrada de muestra con su respectiva mascara
 fig, (ax1, ax2) = plt.subplots(1,2)
-img = np.random.randint(0, X_train.shape[0]) # Utilice el número de muestras
+img = np.random.randint(0, X_train.shape[0]) # Utiliza el número de muestras
 ax1.imshow(X_train[img]) 
 ax2.imshow(y_train[img, :, :, 0], cmap='gray')
 ax1.set_title(f"Image  {img}")
